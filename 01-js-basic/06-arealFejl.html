@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+
+    <script>
+        calculateActive();
+
+        function calculateActive(width, height) {
+
+            let theWidth = prompt("Hvad er bredden?");
+
+            if (talWidth = isNaN(theWidth) || theWidth == "") {
+                failWidth();
+            }
+
+            function failWidth() {
+                alert("Du skal indtaste min. ét tal")
+                calculateActive();
+            }
+
+
+            let theHeight = prompt("Hvad er højden?");
+
+            if (talHeight = isNaN(theHeight) || theWidth == "") {
+                failHeight();
+            }
+
+            function failHeight() {
+                alert("Du skal indtaste min. ét tal");
+                calculateActive();
+            }
+
+
+            let areal = theHeight * theWidth;
+
+            alert("Arealet er " + areal);
+
+            if (confirm("Vil du starte forfra?")) {
+                calculateActive();
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>
