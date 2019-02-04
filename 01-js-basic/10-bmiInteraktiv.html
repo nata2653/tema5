@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <script>
+        bmiUdregner();
+
+        function bmiUdregner() {
+
+            let højde = prompt("Angiv din højde i cm.");
+            if (talHøjde = isNaN(højde) || højde == "") {
+                failHøjde();
+            }
+
+            function failHøjde() {
+                alert("Du skal indtaste min. ét tal")
+                bmiUdregner();
+            }
+
+            let vægt = prompt("Angiv din vægt");
+            if (talVægt = isNaN(vægt) || vægt == "") {
+                failHøjde();
+            }
+
+            function failHøjde() {
+                alert("Du skal indtaste min. ét tal")
+                bmiUdregner();
+            }
+
+            let bmi = vægt / ((højde / 100) * (højde / 100));
+
+            alert(`Din bmi er ${bmi}`);
+
+            if (confirm("Vil du have oplyst din vægtklasse?")) {
+                vægtKlasse();
+            }
+
+            function vægtKlasse() {
+                if (bmi < 20) {
+                    alert("Fedmeklasse: Undervægtig");
+                } else if (bmi > 20 && bmi < 25) {
+                    alert("Fedmeklasse: Normal");
+                } else if (bmi > 25 && bmi < 30) {
+                    alert("Fedmeklasse: Overvægtig");
+                } else if (bmi > 30 && bmi < 35) {
+                    alert("Fedmeklasse: Fed");
+                } else if (bmi > 35 && bmi < 40) {
+                    alert("Fedmeklasse: Svær fedme");
+                } else if (bmi > 40) {
+                    alert("Fedmeklasse: Esktremt fed");
+                }
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>
