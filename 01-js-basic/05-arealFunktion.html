@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+
+    <script>
+        calculate();
+
+        function calculate(width, height) {
+
+            let theWidth = prompt("Hvad er højden?");
+            let theHeight = prompt("Hvad er bredden?");
+            let areal = theHeight * theWidth;
+
+            alert("Arealet er " + areal);
+
+            if (confirm("Vil du starte forfra?")) {
+                calculate();
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>
