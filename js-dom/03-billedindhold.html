@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        #green {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            top: 20px;
+            line-height: 100px;
+            padding-left: 20px;
+        }
+
+        #red {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            top: 120px;
+            border-radius: 50%;
+            line-height: 100px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="green"></div>
+    <div id="red"></div>
+
+    <script>
+        document.querySelector("#green").innerHTML = "<img src='frog.png'/>"
+
+        document.querySelector("#red").innerHTML = "<img src='gris.png'/>"
+    </script>
+
+
+</body>
+
+</html>
