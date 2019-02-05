@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        #green {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            top: 20px;
+            line-height: 100px;
+            padding-left: 20px;
+            text-align: center;
+        }
+
+        #red {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            top: 120px;
+            border-radius: 50%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="green"></div>
+    <div id="red"></div>
+
+    <script>
+        let red = document.querySelector("#red");
+        let img = document.createElement("img");
+        img.src = "http://helf-kea.dk/test/fox.png";
+
+        document.querySelector("#green").innerHTML = "<img src='frog.png'/>"
+
+        red.innerHTML = "<img src='gris.png'/>"
+        red.appendChild(img);
+    </script>
+
+
+</body>
+
+</html>
