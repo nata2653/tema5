@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>js-oevelse-1</title>
+    <style>
+        body {
+            color: burlywood;
+        }
+
+        #display {
+            width: 20vw;
+            border: 1px solid silver;
+            margin: 7vw;
+            padding: 1vw;
+        }
+
+        /*********************/
+    </style>
+
+</head>
+
+<body>
+    <div id="display"></div>
+
+    <script>
+        let sange = ["What Kind Of Man", "Hold Yuh", "Nothing Breaks Like A Heart", "Irreplaceable", "Personal Jesus", "Devils Bleeding Crown", "Enjoy The Silence", "Dirty Harry", "Clint Eastwood", "Without Me"];
+        console.log(sange);
+        sange.forEach(tracks => {
+            document.querySelector("#display").innerHTML += tracks + "<br>";
+
+        })
+    </script>
+</body>
+
+</html>
