@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <button>Se flere dyr</button>
+    <div id="liste"></div>
+    <style>
+        #liste {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .alleDyr {
+            border: 1px black solid;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+
+
+    <script>
+        let alleSlags = document.querySelectorAll("slags");
+        let dyr = [{
+                "navn": "gris",
+                "type": "pattedyr",
+                "levested": "svinefarme",
+                "billede": "http://helf-kea.dk/test/gris.png"
+            },
+
+            {
+                "navn": "frø",
+                "type": "Amfibie",
+                "levested": "vandhullet",
+                "billede": "http://helf-kea.dk/test/frog.png"
+            },
+
+            {
+                "navn": "ræv",
+                "type": "pattedyr",
+                "levested": "skove",
+                "billede": "http://helf-kea.dk/test/fox.png"
+            },
+
+            {
+                "navn": "sild",
+                "type": "fisk",
+                "levested": "havet",
+                "billede": "http://helf-kea.dk/test/sild.jpg"
+            },
+
+            {
+                "navn": "krokodille",
+                "type": "krybdyr",
+                "levested": "sumpe",
+                "billede": "http://helf-kea.dk/test/kroko.jpg"
+            }
+
+        ];
+
+
+        document.addEventListener("DOMContentLoaded", sidenVises);
+        let dest = document.querySelector("#liste");
+
+
+        function sidenVises() {
+            console.log("Siden er loadet");
+        }
+
+        function visDyr() {
+            dyr.forEach(dyrene => {
+                dest.innerHTML += `
+                    <div class="alleDyr">
+<h2>${dyrene.navn}</h2>
+<p> ${dyrene.type} </p>
+<p> ${dyrene.levested}</p>
+<img src="${dyrene.billede}">
+
+
+    </div>`;
+            })
+        }
+
+        visDyr();
+
+
+        document.querySelector("button").addEventListener("click", visFlere);
+
+        function visFlere() {
+
+        }
+    </script>
+
+</body>
+
+</html>
