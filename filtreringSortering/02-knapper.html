@@ -11,11 +11,21 @@
     <div>
         <h1>Personliste</h1>
     </div>
-
+    <div class="menu">
+        <button class="filter" data-hold="alle">Alle</button>
+        <button class="filter" data-hold="a">Hold A</button>
+        <button class="filter valgt" data-hold="b">Hold B</button>
+    </div>
     <div id="liste">
     </div>
 
     <style>
+        .valgt {
+            background-color: grey;
+            color: white;
+
+        }
+
         #liste {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -44,6 +54,7 @@
             text-align: center;
             grid-template-columns: 1fr 1fr;
         }
+
     </style>
 
 
@@ -87,6 +98,7 @@
 
             getJson();
         }
+
     </script>
 
 </body>
