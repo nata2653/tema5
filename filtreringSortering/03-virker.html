@@ -12,7 +12,7 @@
         <h1>Personliste</h1>
     </div>
     <div class="menu">
-        <button class="filter" data-hold="alle">Alle</button>
+        <button class="filter" data-hold="alleHold">Alle Hold</button>
         <button class="filter" data-hold="a">Hold A</button>
         <button class="filter valgt" data-hold="b">Hold B</button>
     </div>
@@ -63,12 +63,12 @@
 
     <script>
         let personer = [];
-        let filter = "alt";
+        let filter = "alleHold";
+        let dest = document.querySelector("#liste");
 
         document.addEventListener("DOMContentLoaded", sidenVises);
 
         function sidenVises() {
-            let dest = document.querySelector("#liste");
 
             async function getJson() {
                 let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
@@ -77,25 +77,38 @@
             }
 
             function visListe() {
+                dest.innerHTML = "";
                 personer.forEach(alle => {
-                    if (alle.hold == filter) {
+                    if (filter == "alleHold" || filter == alle.hold) {
                         dest.innerHTML += `
-                    <div class="allePersoner">
-<div> <img src="${alle.billede}"> </div>
-
-<div> <h2>${alle.navn}</h2>
-<a href="https://github.com/${alle.github}"> <b>Github: ${alle.github}</b> </a>
-<p> ${alle.alder}</p>
-<p> ${alle.køn}</p>
-<p> ${alle.email}</p>
-<p> ${alle.hold}</p>
-<p> ${alle.historie}</p>
+<div class="allePersoner">
+    <div> <img src="${alle.billede}"> </div>
+    <div>
+        <h2>${alle.navn}</h2>
+        <a href="https://github.com/${alle.github}">
+            <b>Github: ${alle.github}</b>
+         </a>
+        <p> ${alle.alder}</p>
+        <p> ${alle.køn}</p>
+        <p> ${alle.email}</p>
+        <p> ${alle.hold}</p>
+        <p> ${alle.historie}</p>
     </div>
-    </div>
-`;
+</div>
+`
                     }
-                })
+                });
+            }
 
+
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+            })
+
+            function filtrering() {
+                filter = this.getAttribute("data-hold");
+                console.log(filter);
+                visListe();
             }
 
             getJson();
