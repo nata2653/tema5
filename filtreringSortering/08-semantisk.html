@@ -14,13 +14,18 @@
         </div>
 
         <h1></h1>
-        <div class="menu">
-            <button class="filter valgt" data-hold="alleHold">Alle Hold</button>
-            <button class="filter" data-hold="a">Hold A</button>
-            <button class="filter" data-hold="b">Hold B</button>
-        </div>
-        <div id="liste">
-        </div>
+        <nav>
+            <div class="menu">
+                <button class="filter valgt" data-hold="alleHold">Alle Hold</button>
+                <button class="filter" data-hold="a">Hold A</button>
+                <button class="filter" data-hold="b">Hold B</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="liste">
+        </section>
 
         <style>
             .valgt {
@@ -77,7 +82,7 @@
                     let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
                     personer = await jsonData.json();
                     personer.sort((a, b) => {
-                        return b.alder - a.alder
+                        return a.navn.localeCompare(b.navn);
                     })
                     visListe();
                 }
@@ -126,6 +131,8 @@
                 getJson();
             }
         </script>
+
+    </main>
 
 </body>
 
