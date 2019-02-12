@@ -24,11 +24,32 @@
     </header>
 
     <main>
-        <div id="popup"></div>
+        <div id="popup" class="hidden">
+            <div id="luk"><button>X</button></div>
+            <div id="indhold" class="hidden"></div>
+        </div>
         <section id="liste">
         </section>
 
         <style>
+            .hidden {
+                display: none;
+            }
+
+            #indhold {
+                box-sizing: border-box;
+                background-color: lightgrey;
+                width: 90vw;
+                height: 90vh;
+                margin: auto;
+            }
+
+            #luk {
+                box-sizing: border-box;
+                text-align: right;
+                padding-right: 1em;
+            }
+
             #popup {
                 width: 100vw;
                 height: 100vh;
@@ -74,7 +95,6 @@
                 text-align: center;
                 grid-template-columns: 1fr 1fr;
             }
-
         </style>
 
 
@@ -139,7 +159,6 @@
 
                 getJson();
             }
-
         </script>
 
     </main>
