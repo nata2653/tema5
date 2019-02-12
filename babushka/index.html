@@ -9,18 +9,26 @@
 </head>
 
 <body>
-    <h1>Menu</h1>
+    <header>
+        <h1>Menu</h1>
 
-    <nav class="menu">
-        <button class="filter valgt" data-hold="alle">Menu</button>
-        <button class="filter" data-hold="forretter">Forret</button>
-        <button class="filter" data-hold="hovedretter">Hovedret</button>
-        <button class="filter" data-hold="desserter">Dessert</button>
-        <button class="filter" data-hold="drikkevarer">Drikkevarer</button>
-        <button class="filter" data-hold="sideorders">Sideorders</button>
-    </nav>
+        <nav class="menu">
+            <button class="filter valgt" data-hold="alle">Menu</button>
+            <button class="filter" data-hold="forretter">Forret</button>
+            <button class="filter" data-hold="hovedretter">Hovedret</button>
+            <button class="filter" data-hold="desserter">Dessert</button>
+            <button class="filter" data-hold="drikkevarer">Drikkevarer</button>
+            <button class="filter" data-hold="sideorders">Sideorders</button>
+        </nav>
+    </header>
 
-    <div id="liste"></div>
+    <main>
+        <div id="popup" class="hidden">
+            <div id="luk"><button>X</button></div>
+            <div id="indhold"></div>
+        </div>
+        <section id="liste"></section>
+    </main>
 
     <script src="script.js"></script>
 </body>

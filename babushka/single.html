@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Babushka</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <header>
+        <h1>Menu</h1>
+
+        <nav class="menu">
+            <button class="filter valgt" data-hold="alle">Menu</button>
+            <button class="filter" data-hold="forretter">Forret</button>
+            <button class="filter" data-hold="hovedretter">Hovedret</button>
+            <button class="filter" data-hold="desserter">Dessert</button>
+            <button class="filter" data-hold="drikkevarer">Drikkevarer</button>
+            <button class="filter" data-hold="sideorders">Sideorders</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="liste"></section>
+    </main>
+
+    <script>
+        let retter = [];
+        let filter = "alleRetter";
+        let dest = document.querySelector("#liste");
+
+        document.addEventListener("DOMContentLoaded", sidenVises);
+
+        function sidenVises() {
+
+            async function getJson() {
+                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1jxxxFoWBuMJ1qhQ9BQIAyKHmP38XtAF9_sQr0xo5JLo");
+                retter = await jsonData.json();
+                retter.sort((a, b) => {
+                    return a.navn.localeCompare(b.navn);
+                })
+                visRetter();
+            }
+
+            function visRetter() {
+                dest.innerHTML = "";
+                retter.forEach(ret => {
+                    if (filter == "alleRetter" || filter == ret.kategori) {
+                        let template = `
+                    <div class="visteRetter">
+              <h2>${ret.navn}</h2>
+
+                            <p>Pris: ${ret.pris}</p>
+                            <p>Beskrivelse kort: ${ret.kort}</p>
+                            <p>Beskrivelse lang: ${ret.lang}</p>
+                            <p>Oprindelse: ${ret.oprindelse}</p>
+                            <div> <img src="imgs/large/${ret.billede}.jpg"> </div>
+                    </div>`;
+
+                        dest.insertAdjacentHTML("beforeend", template);
+                        dest.lastElementChild.addEventListener("click", () => {
+                            location.href = "singleview.html?id=" + ret.id;
+                        });
+                    }
+                })
+            }
+
+
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+            })
+
+            function filtrering() {
+                filter = this.getAttribute("data-hold");
+                document.querySelector("h1").textContent = this.textContent;
+
+                document.querySelectorAll(".filter").forEach(elm => {
+                    elm.classList.remove("valgt");
+                })
+                this.classList.add("valgt");
+
+                visListe();
+            }
+
+            getJson();
+        }
+    </script>
+
+
+</body>
+
+</html>

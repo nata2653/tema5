@@ -22,7 +22,7 @@ function sidenVises() {
         dest.innerHTML = "";
         retter.forEach(ret => {
             if (filter == "alle" || filter == ret.kategori) {
-                dest.innerHTML += `
+                let template = `
                     <div class="visteRetter">
 
               <h2>${ret.navn}</h2>
@@ -32,10 +32,30 @@ function sidenVises() {
                             <p>Beskrivelse lang: ${ret.lang}</p>
                             <p>Oprindelse: ${ret.oprindelse}</p>
                             <div> <img src="imgs/large/${ret.billede}.jpg"> </div>
-                    </div>`
-            };
+                    </div>`;
+
+                dest.insertAdjacentHTML("beforeend", template);
+                dest.lastElementChild.addEventListener("click", åbn);
+
+                function åbn() {
+                    document.querySelector("#indhold").innerHTML = `<article class="person">
+ <h2>${ret.navn}</h2>
+
+                            <p>Pris: ${ret.pris}</p>
+                            <p>Beskrivelse kort: ${ret.kort}</p>
+                            <p>Beskrivelse lang: ${ret.lang}</p>
+                            <p>Oprindelse: ${ret.oprindelse}</p>
+                            <div> <img src="imgs/large/${ret.billede}.jpg"> </div>
+</article>`;
+                    document.querySelector("#popup").style.display = "block";
+                }
+            }
         })
     }
+    document.querySelector("#luk button").addEventListener("click", () => {
+        document.querySelector("#popup").style.display = "none";
+    })
+
 
     document.querySelectorAll(".filter").forEach(elm => {
         elm.addEventListener("click", filtrering);

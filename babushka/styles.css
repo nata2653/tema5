@@ -8,3 +8,28 @@
 img {
     width: 200px;
 }
+
+.hidden {
+    display: none;
+}
+
+#indhold {
+    box-sizing: border-box;
+    background-color: lightgrey;
+    width: 90vw;
+    height: 90vh;
+    margin: auto;
+}
+
+#luk {
+    box-sizing: border-box;
+    text-align: right;
+    padding-right: 1em;
+}
+
+#popup {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: red;
+}
