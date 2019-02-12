@@ -1,23 +1,21 @@
 
 <!DOCTYPE html>
-<html lang="">
+<html lang="da">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Babushka</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Montserrat|Open+Sans+Condensed:300|Open+Sans|" rel="stylesheet">
 </head>
 
 <body>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Babushka</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-
     <header>
+        <div class="headline">
+            <h2>Restaurant Babushka </h2>
+        </div>
         <h1>Menu</h1>
 
         <nav class="menu">
@@ -36,7 +34,7 @@
 
     <script>
         let retter = [];
-        let filter = "alleRetter";
+        let filter = "alle";
         let dest = document.querySelector("#liste");
 
         document.addEventListener("DOMContentLoaded", sidenVises);
@@ -55,16 +53,14 @@
             function visRetter() {
                 dest.innerHTML = "";
                 retter.forEach(ret => {
-                    if (filter == "alleRetter" || filter == ret.kategori) {
+                    if (filter == "alle" || filter == ret.kategori) {
                         let template = `
                     <div class="visteRetter">
-              <h2>${ret.navn}</h2>
-
-                            <p>Pris: ${ret.pris}</p>
-                            <p>Beskrivelse kort: ${ret.kort}</p>
-                            <p>Beskrivelse lang: ${ret.lang}</p>
-                            <p>Oprindelse: ${ret.oprindelse}</p>
                             <div> <img src="imgs/large/${ret.billede}.jpg"> </div>
+                            <h2>${ret.navn}</h2>
+                            <p><strong>Pris: </strong> ${ret.pris}</p>
+                            <p>${ret.kort}</p>
+                            <p><strong>Oprindelse: </strong> ${ret.oprindelse}</p>
                     </div>`;
 
                         dest.insertAdjacentHTML("beforeend", template);
@@ -89,7 +85,7 @@
                 })
                 this.classList.add("valgt");
 
-                visListe();
+                visRetter();
             }
 
             getJson();

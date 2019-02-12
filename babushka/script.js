@@ -26,12 +26,11 @@ function sidenVises() {
                     <div class="visteRetter">
 
               <h2>${ret.navn}</h2>
+ <div> <img src="imgs/large/${ret.billede}.jpg"> </div>
+                            <p><strong>Pris:</strong> ${ret.pris}</p>
+                            <p>${ret.kort}</p>
+                            <p><strong>Oprindelse: </strong> ${ret.oprindelse}</p>
 
-                            <p>Pris: ${ret.pris}</p>
-                            <p>Beskrivelse kort: ${ret.kort}</p>
-                            <p>Beskrivelse lang: ${ret.lang}</p>
-                            <p>Oprindelse: ${ret.oprindelse}</p>
-                            <div> <img src="imgs/large/${ret.billede}.jpg"> </div>
                     </div>`;
 
                 dest.insertAdjacentHTML("beforeend", template);
@@ -40,12 +39,11 @@ function sidenVises() {
                 function åbn() {
                     document.querySelector("#indhold").innerHTML = `<article class="person">
  <h2>${ret.navn}</h2>
+  <div> <img src="imgs/large/${ret.billede}.jpg"> </div>
+                            <p><strong> Pris: </strong> ${ret.pris}</p>
+                            <p>${ret.lang}</p>
+                            <p><strong>Oprindelse: </strong> ${ret.oprindelse}</p>
 
-                            <p>Pris: ${ret.pris}</p>
-                            <p>Beskrivelse kort: ${ret.kort}</p>
-                            <p>Beskrivelse lang: ${ret.lang}</p>
-                            <p>Oprindelse: ${ret.oprindelse}</p>
-                            <div> <img src="imgs/large/${ret.billede}.jpg"> </div>
 </article>`;
                     document.querySelector("#popup").style.display = "block";
                 }

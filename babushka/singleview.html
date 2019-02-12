@@ -2,11 +2,45 @@
 <html lang="da">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single-view</title>
 
-    <link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Babushka</title>
+
+        <style>
+            #singleview {
+                text-align: center;
+            }
+
+            #indhold {
+                margin-top: 20px;
+                padding: 0px 100px;
+                box-shadow: 7px 7px 10px 1px #c6c6c6;
+                border-radius: 10px;
+                border: 1px #e2e2e2 solid;
+            }
+
+            #tilbage button {
+                font-size: 1rem;
+                border-radius: 5px;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            img {
+                width: 40vw;
+                padding-top: 30px;
+            }
+
+            h2 {
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            p {
+                font-family: 'Open Sans', sans-serif;
+            }
+        </style>
+    </head>
 
 </head>
 
@@ -14,7 +48,7 @@
 
     <main>
         <div id="singleview" class="hidden">
-            <div id="tilbage"><button>X</button></div>
+            <div id="tilbage"><button>Tilbage</button></div>
             <div id="indhold"></div>
         </div>
     </main>
@@ -43,13 +77,13 @@
             function åbn() {
                 document.querySelector("#indhold").innerHTML = `
                     <div class="visteRetter">
+                           <div class="tekst="> <h2>${ret.navn}</h2>
+<div> <img src="imgs/large/${ret.billede}.jpg"> </div>
+                            <p><strong>Pris: </strong>${ret.pris}</p>
+                            <p>${ret.lang}</p>
+                            <p><strong>Oprindelse:</Strong> ${ret.oprindelse}</p>
+    </div>
 
-                            <h2>${ret.navn}</h2>
-                            <p>Pris: ${ret.pris}</p>
-                            <p>Beskrivelse kort: ${ret.kort}</p>
-                            <p>Beskrivelse lang: ${ret.lang}</p>
-                            <p>Oprindelse: ${ret.oprindelse}</p>
-                            <div> <img src="imgs/large/${ret.billede}.jpg"> </div>
                     </div>`;
             }
 
