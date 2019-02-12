@@ -164,7 +164,9 @@
                         }
                     })
                 }
-
+                document.querySelector("#luk button").addEventListener("click", () => {
+                    document.querySelector("#popup").style.display = "none";
+                })
 
                 document.querySelectorAll(".filter").forEach(elm => {
                     elm.addEventListener("click", filtrering);
